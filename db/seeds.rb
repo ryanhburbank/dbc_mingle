@@ -10,11 +10,16 @@ def twitter_handle(twitter_string)
   end
 end
 
+def in_session(cohort_boolean)
+  return 1 if cohort_boolean == true
+  0
+end
+
 all_cohorts.each do |cohort|
   current_cohort = Cohort.new(name: cohort.name, 
              location: cohort.location, 
              email: cohort.email,
-             in_session: (1 if cohort.in_session == true) )
+             in_session: in_session(cohort.in_session) )
   if current_cohort.save
     cohort.students.each do |student|
       current_student = User.new(name: student.name,
