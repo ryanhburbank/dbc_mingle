@@ -4,8 +4,8 @@ class CreateEvents < ActiveRecord::Migration
       t.integer    :user_id
       t.belongs_to :restaurant
       t.datetime   :time
-      t.string     :topic
       t.text       :description
+      t.string     :category
 
       t.timestamps
     end
