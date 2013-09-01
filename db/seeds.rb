@@ -51,7 +51,7 @@ gps_long_km = gps_grid*(360.0/(Math.cos(gps_long)*40075.0))
 gps_coordinates = [gps_lat-gps_lat_km, gps_long-gps_long_km,gps_lat+gps_lat_km,gps_long+gps_long_km  ]
 
 
-search_terms = ["coffee", "pizza", "mexican", "italian", "breakfast", "thai", "chinese", "sandwhiches"]
+search_terms = ["coffee", "pizza", "mexican", "italian", "breakfast", "thai", "chinese", "sandwiches"]
 client = Yelp::Client.new
 include Yelp::V2::Search::Request
 
