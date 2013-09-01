@@ -18,6 +18,7 @@ gem 'rake'
 gem 'shotgun'
 gem 'nokogiri'
 gem 'dbc-ruby'
+gem 'yelpster'
 
 group :test do
   gem 'faker'
