@@ -1,23 +1,119 @@
-<div class="container">
-  <h1>Welcome to Sinatra!</h1>
-  <p>Hello, world!</p>
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
 
-  <table>
-    <tr>
-      <th>File Description</th>
-      <th>File Location</th>
-    </tr>
-    <tr>
-      <td>This view file</td>
-      <td><code><%= __FILE__.gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The layout file</td>
-      <td><code><%= File.expand_path('../layout.erb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The current controller</td>
-      <td><code><%= File.expand_path('../../controllers/index.rb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-  </table>
-</div>
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+        <div id="header">
+            <a id="create_event_button" href="/events/categories">Create Event</a>
+        </div>
+        <div id="events">
+            <h1>Latest Events</h1>
+<% @events.each do |e|%>
+            <ul>
+                <li>
+                    <a class="profile_avatar"></a>
+                    <div class="event_content">
+                        <span class="owner"><strong><%= e.creator %></strong></span>
+                        <h2><%= e.description %></h2>
+                        <span class="info">When: <%= e.time.strftime("%Y-%d-%m") %> &bull; Type: <%= e.restaurant.type_of_food %> &bull; Where: <%= e.restaurant.name %></span>
+
+                        <a class="attend_button" href="/events/#{e.id}/join">Attend This</a>
+                         
+                        <div class="attendee_list">
+                            <h3>Who's Going:</h3>
+                           <%e.attendees.each do |a| %>
+                            <%= a.name %>
+                            <% end %>
+<!--                             <span class="attendees"></span>
+                            <span class="attendees"></span>
+                            <span class="attendees"></span>
+                            <span class="attendees"></span>
+                            <span class="attendees"></span>
+                            <span class="attendees"></span>
+                            <span class="attendees"></span>
+                            <span class="attendees"></span>
+                            <span class="attendees"></span>
+                            <span class="attendees"></span>
+                            <span class="attendees"></span>
+                            <span class="attendees"></span>
+                            <span class="attendees"></span>
+                            <span class="attendees"></span>
+                            <span class="attendees"></span>
+                            <span class="attendees"></span>
+                            <span class="attendees"></span>
+                            <span class="attendees"></span>
+                            <span class="attendees"></span> -->
+                        </div>
+                    </div>  
+                </li>
+
+                <!-- <li>
+                    <a class="profile_avatar"></a>
+                    <div class="event_content">
+                        <span class="owner"><strong>Nelsol Batalla</strong></span>
+                        <h2>New Cohort Icebreaker</h2>
+                        <span class="info">When: 1pm &bull; Type: Fast Food &bull; Where: McDonald's</span>
+                        <p>Did the first day weird you out? Don't worry you'll get used to it. Let's meet at the double arches and talk about code!</p>
+
+                        <a class="attend_button">Attend This</a>
+
+                        <div class="attendee_list">
+                            <h3>Who's Going:</h3>
+                            <span class="attendees"></span>
+                            <span class="attendees"></span>
+                            <span class="attendees"></span>
+                            <span class="attendees"></span>
+                            <span class="attendees"></span>
+                            <span class="attendees"></span>
+                            <span class="attendees"></span>
+                            <span class="attendees"></span>
+                            <span class="attendees"></span>
+                            <span class="attendees"></span>
+                            <span class="attendees"></span>
+                            <span class="attendees"></span>
+                            <span class="attendees"></span>
+                            <span class="attendees"></span>
+                            <span class="attendees"></span>
+                            <span class="attendees"></span>
+                            <span class="attendees"></span>
+                            <span class="attendees"></span>
+                            <span class="attendees"></span>
+                        </div>
+                    </div>  
+                </li> -->
+            </ul>
+        </div>
+<% end %>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src='//www.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)}(document,'script'));
+        </script>
+    </body>
+</html>
