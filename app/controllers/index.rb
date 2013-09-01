@@ -1,9 +1,14 @@
 get '/' do
+  @events = Event.all
   # Look in app/views/index.erb
   erb :index
 end
 
 get '/events/categories' do
+  @category = []
+  Restaurant.all.each do |place| 
+    @category << place.type_of_food unless @category.include?(place.type_of_food) 
+  end
   if request.xhr? 
     erb :_categories, layout: false
   else
@@ -13,6 +18,7 @@ end
 
 post '/events/categories' do
   @category = params[:category]
+  @current_restaurants = Restaurant.where("type_of_food = ?", @category)
   if request.xhr?
     erb :_restaurants, layout: false
   else

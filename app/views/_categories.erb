@@ -1,0 +1,7 @@
+
+<% category.each do |food_type| %>
+  <form action ="/events/categories" method="POST">
+    <input type="hidden" name="category" value="#{food_type}">
+    <input type="submit" value="#{food_type}">
+  </form>
+<% end %>
