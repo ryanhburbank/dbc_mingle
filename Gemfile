@@ -17,6 +17,7 @@ gem 'rake'
 
 gem 'shotgun'
 gem 'nokogiri'
+gem 'dbc-ruby'
 
 group :test do
   gem 'faker'
