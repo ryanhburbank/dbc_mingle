@@ -5,9 +5,7 @@ class CreateRestaurants < ActiveRecord::Migration
       t.string  :location
       t.string  :phone_number
       t.string  :website_url
-      t.time    :open_time
-      t.time    :close_time
-      t.integer :price
+      t.string  :rating
       t.string  :type_of_food
 
       t.timestamps
