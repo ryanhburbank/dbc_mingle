@@ -23,24 +23,27 @@
 
         <!-- Add your site or application content here -->
         <div id="header">
-            <a id="create_event_button" href="#">Create Event</a>
+            <a id="create_event_button" href="/events/categories">Create Event</a>
         </div>
-
         <div id="events">
             <h1>Latest Events</h1>
+<% @events.each do |e|%>
             <ul>
                 <li>
                     <a class="profile_avatar"></a>
                     <div class="event_content">
-                        <span class="owner"><strong>Nelsol Batalla</strong></span>
-                        <h2>Let's Talk About Recursion Over Pizza!</h2>
-                        <span class="info">When: 12pm &bull; Type: Italian &bull; Where: Giordano's</span>
-                        <p>Does your head hurt from recursion? The best cure is eating a deep dish pizza from Giordano's!</p>
+                        <span class="owner"><strong><%= e.creator %></strong></span>
+                        <h2><%= e.description %></h2>
+                        <span class="info">When: <%= e.time.strftime("%Y-%d-%m") %> &bull; Type: <%= e.restaurant.type_of_food %> &bull; Where: <%= e.restaurant.name %></span>
 
-                        <a class="attend_button">Attend This</a>
-
+                        <a class="attend_button" href="/events/#{e.id}/join">Attend This</a>
+                         
                         <div class="attendee_list">
                             <h3>Who's Going:</h3>
+                           <%e.attendees.each do |a| %>
+                            <%= a.name %>
+                            <% end %>
+<!--                             <span class="attendees"></span>
                             <span class="attendees"></span>
                             <span class="attendees"></span>
                             <span class="attendees"></span>
@@ -58,13 +61,12 @@
                             <span class="attendees"></span>
                             <span class="attendees"></span>
                             <span class="attendees"></span>
-                            <span class="attendees"></span>
-                            <span class="attendees"></span>
+                            <span class="attendees"></span> -->
                         </div>
                     </div>  
                 </li>
 
-                <li>
+                <!-- <li>
                     <a class="profile_avatar"></a>
                     <div class="event_content">
                         <span class="owner"><strong>Nelsol Batalla</strong></span>
@@ -97,10 +99,10 @@
                             <span class="attendees"></span>
                         </div>
                     </div>  
-                </li>
+                </li> -->
             </ul>
         </div>
-
+<% end %>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
