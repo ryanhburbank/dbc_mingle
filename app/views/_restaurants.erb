@@ -1,7 +1,9 @@
-<% @current_restaurants.each do |restaurant| %>
-  <form action ="/events/new" method="GET">
-    <input type="hidden" name="category" value="#{@category}">
-    <input type="hidden" name="restaurant_id" value="#{restaurant.id}">
-    <input type="submit" value="#{restaurant.name}">
-  </form>
-<% end %>
+<div class="events" id="category_list">
+  <% @current_restaurants.each do |restaurant| %>
+    <form class="restaurants" action ="/events/new" method="GET" class="category-form">
+      <input type="hidden" name="category" value=<%= @category %>>
+      <input type="hidden" name="restaurant_id" value=<%= restaurant.id %>>
+      <input type="submit" class="category-submit" value="<%= restaurant.name %> @<%= restaurant.location%>">
+    </form>
+  <% end %>
+</div>
