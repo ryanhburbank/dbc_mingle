@@ -1,3 +1,23 @@
-<% @events.each do |event| %>
-  <a href="events/#{event.id}/join"><%= event.restaurant.name %></a>
+<% @events.each do |e|%>
+        <div class="events">
+            <ul>
+                <li>
+                    <a class="profile_avatar"></a>
+                    <div class="event_content">
+                        <span class="owner"><strong><%= e.creator_name %></strong></span>
+                        <h2><%= e.description %></h2>
+                        <span class="info">When: <%= e.time.strftime("%Y-%d-%m") %> &bull; Type: <%= e.restaurant.type_of_food %> &bull; Where: <%= e.restaurant.name %></span>
+
+                        <a class="attend_button" href="/events/<%=e.id%>/join">Attend This</a>
+                         
+                        <div class="attendee_list">
+                            <h3>Who's Going:</h3>
+                           <%e.attendees.each do |a| %>
+                            <%= a.name %>
+                            <% end %>
+                        </div>
+                    </div>  
+                </li>
+            </ul>
+        </div>
 <% end %>
