@@ -1,4 +1,6 @@
-<form action ="/events/#{@event_id}/join" method="POST">
-    <input type="text" name="email" placeholder="enter your email">
-    <input type="submit" value="#{restaurant.name}">
-</form>
+<div class="events">
+  <form action ="/events/<%= @event_id %>/join" method="POST">
+      <input type="text" name="email" placeholder="enter your email">
+      <input type="submit" value="<%=@restaurant_name%>">
+  </form>
+</div>

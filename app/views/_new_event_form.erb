@@ -1,8 +1,10 @@
-<form action ="/events/new" method="POST">
-    <input type="hidden" name="category" value="#{@category}">
-    <input type="hidden" name="restaurant_id" value="#{@restaurant_id}">
-    <input type="datetime-local" name="time" placeholder="time of event here">
-    <input type="text" name="email" placeholder="email goes here">
-    <input type="text" name="description" placeholder="description goes here">
-    <input type="submit" value="#{restaurant.name}">
-</form>
+<div class="events">
+  <form action ="/events/new" method="POST" class="event-form">
+      <input type="hidden" name="category" value="<%= @category %>">
+      <input type="hidden" name="restaurant_id" value="<%= @restaurant_id %>">
+      <input type="datetime-local" class="time-field" name="time">
+      <input type="text" name="email" class="email-field" placeholder="email goes here">
+      <textarea name="description" class="description-field" placeholder="description goes here"></textarea>
+      <input type="submit" class="category-submit" value="Create Event!">
+  </form>
+</div>

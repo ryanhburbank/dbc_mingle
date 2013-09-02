@@ -86,7 +86,7 @@ search_terms.each do |term|
     	             :rating => @business[1],
     	             :website_url => @business[2],
     	             :phone_number => @business[3],
-    	             :location => location[0] + " " + location[2],
+    	             :location => location[0],
                    :type_of_food => term)
     if restaurant.save
     	puts "#{restaurant.name} saved"

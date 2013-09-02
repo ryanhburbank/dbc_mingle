@@ -98,7 +98,7 @@ html { background: #f9f9f9; }
 #header{
     position: fixed;
     width: 100%;
-    height: 50px;
+    /*height: 50px;*/
     border-bottom: 3px solid #eee;
     top: 0;
     background: #12455e; /* Old browsers */
@@ -109,6 +109,12 @@ html { background: #f9f9f9; }
     background: -ms-linear-gradient(top,  #12455e 0%,#103451 100%); /* IE10+ */
     background: linear-gradient(to bottom,  #12455e 0%,#103451 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#12455e', endColorstr='#103451',GradientType=0 ); /* IE6-9 */
+}
+
+.header_title {
+    color: #FDFDFD;
+    font-size: 3.2em;
+    margin: 0px 5px;
 }
     a#create_event_button{
         position: absolute;
@@ -124,8 +130,68 @@ html { background: #f9f9f9; }
         border-radius: 3px;
         display: block;
     }
+.banner {
+    text-align: center;
+}
 
-#events {
+.event-form {
+
+margin:auto;
+font-family: Tahoma, Geneva, sans-serif;
+font-size: 14px;
+font-style: italic;
+line-height: 24px;
+font-weight: bold;
+color: #09C;
+text-decoration: none;
+border-radius: 10px;
+padding:10px;
+}
+
+.time-field{
+    width:48%;
+    border-radius: 4px;
+}
+
+.email-field{
+    width:48%;
+    border-radius: 4px;
+}
+
+.description-field{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: block;
+    width: 98%;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+}
+
+.category-submit {
+    border-radius: 5px;
+    width: 100%;
+    padding: 10px 0px;
+    background-color: #AA0000;
+    color: #FEFEFE;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.category-submit:hover {
+    background-color: #FEFEFE;
+    color:  #AA0000 ;
+}
+
+.category-form {
+    margin-bottom: 6px;
+}
+
+#category_list {
+    padding: 20px 20px;
+}
+
+.events {
     width: 600px;
     margin: 100px auto;
     padding: 0 0 60px 0;
