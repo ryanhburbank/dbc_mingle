@@ -1,10 +1,10 @@
-<div class="events">
+<div id="new_event_form">
   <form action ="/events/new" method="POST" class="event-form">
       <input type="hidden" name="category" value="<%= @category %>">
       <input type="hidden" name="restaurant_id" value="<%= @restaurant_id %>">
-      <input type="datetime-local" class="time-field" name="time">
-      <input type="text" name="email" class="email-field" placeholder="email goes here">
-      <textarea name="description" class="description-field" placeholder="description goes here"></textarea>
+      <input type="datetime-local" class="time-field" name="time" required>
+      <input type="text" name="email" class="email-field" placeholder="enter your DBC email here" required>
+      <textarea name="description" class="description-field" placeholder="What's the occasion?"></textarea>
       <input type="submit" class="category-submit" value="Create Event!">
   </form>
 </div>

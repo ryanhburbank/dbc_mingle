@@ -213,13 +213,20 @@ padding:10px;
 .events {
     width: 600px;
     margin: 100px auto;
-    margin-top: 10px;
-    padding: 0 0 60px 0;
+    margin-top: 0px;
+    margin-bottom: 30px;
+    padding: 0 0 30px 0;
     background: #ededed;
     overflow: hidden;
     -moz-box-shadow: 0 1px 5px 3px #f5f5f5;
     -webkit-box-shadow: 0 1px 5px 3px #f5f5f5;
     box-shadow: 0 1px 5px 3px #eee;
+}
+
+#new_event_form {
+    margin: 0 auto;
+    width: 50%;
+    margin-top: 80px;
 }
 
     .events div.event_content{
@@ -228,6 +235,7 @@ padding:10px;
     .events div.event_content ul{
         padding: 0px;
     }
+
 
     .events ul li{
         list-style: none;
@@ -241,8 +249,14 @@ padding:10px;
             border-bottom: 1px solid #f5f5f5;
             border-radius: 5px;
         }
+
+        .event_info {
+            display: inline;
+            margin-left: 120px;
+        }
            
             img.profile_avatar{
+                display: inline-block;
                 width: 80px;
                 height: 80px;
                 margin: 0 0 0 10px;
@@ -253,19 +267,8 @@ padding:10px;
             .info li:hover{
                 background-color: #22BFFF;
             }
-            .event_content{
-                width: 470px;
-                margin: 0 auto;
-            }
-                span.event_info{
-                    margin: 0;
-                    font-size: 14px;
-                    text-transform: lowercase;
-                    color: #aaa;
-                }
-
+ 
                 a.attend_button{
-                    width: 150px;
                     padding: 5px 0 5px;
                     text-align: center;
                     color: #fff;
@@ -283,9 +286,8 @@ padding:10px;
                     .attendee_list h3{
                         font-size: 15px;
                     }
+
                     span.attendees{
-                        width: 30px;
-                        height: 30px;
                         background: #fafafa;
                         color: #113C57;
                         border: 2px solid #eee;
