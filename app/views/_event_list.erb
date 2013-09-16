@@ -1,23 +1,25 @@
+
 <% @events.each do |e|%>
         <div class="events">
-            <ul>
-                <li>
-                    <a class="profile_avatar"></a>
-                    <div class="event_content">
-                        <span class="owner"><strong><%= e.creator_name %></strong></span>
-                        <h2><%= e.description %></h2>
-                        <span class="info">When: <%= e.time.strftime("%Y-%d-%m") %> &bull; Type: <%= e.restaurant.type_of_food %> &bull; Where: <%= e.restaurant.name %></span>
+            <img class="profile_avatar" src="<%= Gravatar.new(e.creator_email).image_url %>">
+            <div class="event_content">
+                <span class="event_info">Come join <strong><%= e.creator_name %></strong><br/>
+                </span>
+                <ul class="info">
+                    <li> When: <%= e.time.strftime("%Y-%d-%m") %></li>
+                    <li> Where: <%= e.restaurant.name %></li>
+                    <li> What: <%= e.restaurant.type_of_food %></li>
+                    <li> Why: <%= e.description %></li>
+                </ul>
 
-                        <a class="attend_button" href="/events/<%=e.id%>/join">Attend This</a>
-                         
-                        <div class="attendee_list">
-                            <h3>Who's Going:</h3>
-                           <%e.attendees.each do |a| %>
-                            <%= a.name %>
-                            <% end %>
-                        </div>
-                    </div>  
-                </li>
-            </ul>
+                <a class="attend_button" href="/events/<%=e.id%>/join">Attend This</a>
+                 
+                <div class="attendee_list">
+                    <h3>Who's Going:</h3>
+                   <%e.attendees.each do |a| %>
+                    <span class="attendees"><%= a.name %></span>
+                    <% end %>
+                </div>
+            </div>  
         </div>
 <% end %>

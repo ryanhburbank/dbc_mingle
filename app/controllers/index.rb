@@ -1,3 +1,5 @@
+require 'gravatar-ultimate'
+
 get '/' do
   @events = Event.all
   # Look in app/views/index.erb
@@ -40,7 +42,8 @@ post '/events/new' do
   user = User.find_by_email(params[:email])
   event = user.created_events.build(restaurant_id: params[:restaurant_id],
                                   time: params[:time], category: params[:category],
-                                  description: params[:description], creator_name: user.name)
+                                  description: params[:description], creator_name: user.name,
+                                  creator_email: user.email)
   event.save
   if request.xhr?
     erb :_event_list, layout: false
